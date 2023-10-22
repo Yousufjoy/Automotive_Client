@@ -3,12 +3,16 @@ const Brand = ({ data }) => {
 
   return (
     <div>
-      <div className="card card-compact  bg-base-100 shadow-xl">
-        <figure>
-          <img className=" w-full h-[650px]" src={brandImage} alt="Shoes" />
+      <div className="card bg-base-100 shadow-xl">
+        <figure className="px-10 pt-10">
+          <img
+            src={brandImage}
+            alt="Shoes"
+            className="rounded-xl w-full h-[600px]"
+          />
         </figure>
-        <div className="card-body">
-          <h2 className="card-title text-center  px-[50px]">{brandName}</h2>
+        <div className="card-body items-center text-center">
+          <h2 className="card-title">{brandName}</h2>
         </div>
       </div>
     </div>
