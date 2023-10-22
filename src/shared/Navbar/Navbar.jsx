@@ -1,11 +1,13 @@
 import { useState } from "react";
 import logo from "../../assets/imgs/logo2.png";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <div>
-      <nav className="bg-[#EBEBEB] p-2">
+      <nav className="p-2">
         <div className="container mx-auto flex justify-between items-center">
           <a
             href="#"
@@ -15,36 +17,39 @@ const Navbar = () => {
           </a>
 
           <div className="hidden md:flex items-center">
-            <a
-              href="#"
-              className="text-[#3A3A3A] hover:text-[#F7A034] px-3 py-2  hover:underline"
+            <NavLink
+              to="/"
+              className="px-3 py-2  transition duration-300 ease-in-out hover:text-[#767676] text-lg text-[#F7A034]"
             >
               Home
-            </a>
-            <a
-              href="#"
-              className="text-[#3A3A3A] hover:text-[#F7A034] px-3 py-2  hover:underline"
+            </NavLink>
+
+            <NavLink
+              to="/addproduct"
+              className="px-3 py-2  transition duration-300 ease-in-out hover:text-[#767676] text-lg text-[#F7A034]"
             >
               Add Product
-            </a>
-            <a
-              href="#"
-              className="text-[#3A3A3A] hover:text-[#F7A034] px-3 py-2  hover:underline"
+            </NavLink>
+
+            <NavLink
+              to="/mycart"
+              className="px-3 py-2  transition duration-300 ease-in-out hover:text-[#767676] text-lg text-[#F7A034]"
             >
               My Cart
-            </a>
-            <a
-              href="#"
-              className="text-[#3A3A3A] hover:text-[#F7A034] px-3 py-2  hover:underline"
+            </NavLink>
+
+            <NavLink
+              to="/login"
+              className="px-3 py-2  transition duration-300 ease-in-out hover:text-[#767676] text-lg text-[#F7A034]"
             >
               Login
-            </a>
+            </NavLink>
           </div>
 
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-300 hover:text-white focus:outline-none focus:text-white"
+              className="text-gray-300 hover:text-white focus:outline-none focus:text-white transition duration-300 ease-in-out"
             >
               <svg
                 className="h-6 w-6"
@@ -64,31 +69,33 @@ const Navbar = () => {
         </div>
 
         {isMenuOpen && (
-          <div className="md:hidden ">
-            <a
-              href="#"
-              className="block text-black hover:text-[#F7A034] px-4 py-2"
+          <div className="md:hidden">
+            <NavLink
+              to="/"
+              className="block text-black hover:text-[#F7A034] px-4 py-2 transition duration-300 ease-in-out"
             >
               Home
-            </a>
-            <a
-              href="#"
-              className="block  text-black hover:text-[#F7A034]  px-4 py-2"
+            </NavLink>
+
+            <NavLink
+              to="/addproduct"
+              className="block text-black hover:text-[#F7A034] px-4 py-2 transition duration-300 ease-in-out"
             >
               Add Product
-            </a>
-            <a
-              href="#"
-              className="block  text-black hover:text-[#F7A034]  px-4 py-2"
+            </NavLink>
+
+            <NavLink
+              to="/mycart"
+              className="block text-black hover:text-[#F7A034] px-4 py-2 transition duration-300 ease-in-out"
             >
               My Cart
-            </a>
-            <a
-              href="#"
-              className="block  text-black hover:text-[#F7A034]  px-4 py-2"
+            </NavLink>
+            <NavLink
+              to="/login"
+              className="block text-black hover:text-[#F7A034] px-4 py-2 transition duration-300 ease-in-out"
             >
               Login
-            </a>
+            </NavLink>
           </div>
         )}
       </nav>
