@@ -1,9 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import logo from "../../assets/imgs/logo2.png";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProviders";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const authInfo = useContext(AuthContext);
+  const { user, logoutUser } = authInfo;
+  const handleSignOut = () => {
+    logoutUser().then().catch();
+  };
 
   return (
     <div>
@@ -38,12 +44,35 @@ const Navbar = () => {
               My Cart
             </NavLink>
 
-            <NavLink
-              to="/login"
-              className="px-3 py-2  transition duration-300 ease-in-out hover:text-[#767676] text-lg text-[#F7A034]"
-            >
-              Login
-            </NavLink>
+            {user ? (
+              <NavLink
+                to="/login"
+                className="px-3 py-2 hidden transition duration-300 ease-in-out hover:text-[#767676] text-lg text-[#F7A034]"
+              >
+                Login
+              </NavLink>
+            ) : (
+              <NavLink
+                to="/login"
+                className="px-3 py-2  transition duration-300 ease-in-out hover:text-[#767676] text-lg text-[#F7A034]"
+              >
+                Login
+              </NavLink>
+            )}
+
+            {user && (
+              <NavLink
+                to="/"
+                className="px-3 py-2  transition duration-300 ease-in-out hover:text-[#767676] text-lg "
+              >
+                <button
+                  onClick={handleSignOut}
+                  className="btn btn-active btn-ghost"
+                >
+                  Logout
+                </button>
+              </NavLink>
+            )}
           </div>
 
           <div className="md:hidden">
@@ -96,6 +125,19 @@ const Navbar = () => {
             >
               Login
             </NavLink>
+            {user && (
+              <NavLink
+                to="/"
+                className="px-3 py-2  transition duration-300 ease-in-out hover:text-[#767676] text-lg "
+              >
+                <button
+                  onClick={handleSignOut}
+                  className="btn btn-active btn-ghost"
+                >
+                  Logout
+                </button>
+              </NavLink>
+            )}
           </div>
         )}
       </nav>
