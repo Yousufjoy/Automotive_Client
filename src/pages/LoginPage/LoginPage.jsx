@@ -1,13 +1,32 @@
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/imgs/logo2.png";
 import loginImage from "../../assets/imgs/loginBanner.jpg";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
+import { AiFillGoogleCircle } from "react-icons/ai";
+import Swal from "sweetalert2";
+import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import app from "../../firebase/firebase.config";
 
 const LoginPage = () => {
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
   const authInfo = useContext(AuthContext);
   const { loginUser } = authInfo;
+  const auth = getAuth(app);
+
+  const loginWithGoogle = () => {
+    const provider = new GoogleAuthProvider();
+
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        console.log(result.user);
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -20,10 +39,19 @@ const LoginPage = () => {
         console.log(result);
         navigate("/");
       })
-      .then((error) => {
-        console.log(error);
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(`error code: ${errorCode} message: ${errorMessage}`);
+        setErrorMessage(errorMessage);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: errorMessage,
+        });
       });
   };
+
   return (
     <div>
       <div className="min-h-screen md:grid md:grid-cols-2 lg:grid-cols-3">
@@ -109,6 +137,31 @@ const LoginPage = () => {
                       Sign in
                     </button>
                   </span>
+                </div>
+                <div className="flex flex-col space-y-5">
+                  <span className="flex items-center justify-center space-x-2">
+                    <span className="h-px bg-gray-400 w-14"></span>
+                    <span className="font-normal text-gray-500">
+                      or login with
+                    </span>
+                    <span className="h-px bg-gray-400 w-14"></span>
+                  </span>
+                  <div className="flex flex-col space-y-4">
+                    <a
+                      href="#"
+                      className="flex items-center justify-center px-4 py-2 space-x-2 transition-colors duration-300 border border-gray-800 rounded-md group hover:bg-gray-800 focus:outline-none"
+                    >
+                      <span>
+                        <AiFillGoogleCircle className=" text-blue-400 text-xl"></AiFillGoogleCircle>
+                      </span>
+                      <span
+                        onClick={loginWithGoogle}
+                        className="text-sm font-medium text-gray-800 group-hover:text-white"
+                      >
+                        Google
+                      </span>
+                    </a>
+                  </div>
                 </div>
               </form>
             </div>

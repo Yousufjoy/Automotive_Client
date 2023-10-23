@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/imgs/logo2.png";
 import registerImage from "../../assets/imgs/RegisterBanner.jpg";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
 import Swal from "sweetalert2";
 
 const Register = () => {
+  const [errorReg, setErrorReg] = useState("");
+  const [successReg, setSuccessReg] = useState("");
   const authInfo = useContext(AuthContext);
   const { createUser } = authInfo;
 
@@ -15,6 +17,21 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
+
+    // Regular expressions for password validation
+    const uppercaseRegex = /[A-Z]/;
+    const specialCharRegex = /[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]/;
+
+    // Check if the password meets the criteria
+    if (!uppercaseRegex.test(password) || !specialCharRegex.test(password)) {
+      setErrorReg(
+        "Password must contain at least one uppercase letter and one special character and should be atleast 6 letters."
+      );
+      return; // Don't proceed with registration if the password is invalid
+    }
+
+    setSuccessReg("");
+    setErrorReg("");
 
     createUser(email, password)
       .then((userCredential) => {
@@ -27,8 +44,7 @@ const Register = () => {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
-        // ..
+        console.log(`error code: ${errorCode} message: ${errorMessage}`);
       });
   };
   return (
@@ -114,6 +130,9 @@ const Register = () => {
                         Sign in
                       </button>
                     </span>
+                    <div>
+                      <p className=" text-red-500">{errorReg}</p>
+                    </div>
                   </div>
                 </form>
               </div>
