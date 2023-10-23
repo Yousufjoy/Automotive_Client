@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/imgs/logo2.png";
 import loginImage from "../../assets/imgs/loginBanner.jpg";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
 
 const LoginPage = () => {
+  const navigate = useNavigate();
   const authInfo = useContext(AuthContext);
   const { loginUser } = authInfo;
 
@@ -17,6 +18,7 @@ const LoginPage = () => {
     loginUser(email, password)
       .then((result) => {
         console.log(result);
+        navigate("/");
       })
       .then((error) => {
         console.log(error);
