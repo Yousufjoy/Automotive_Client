@@ -6,6 +6,8 @@ import LoginPage from "../pages/LoginPage/LoginPage";
 import Register from "../pages/Register/Register";
 import AddProducts from "../pages/AddProducts/AddProducts";
 import PrivateRoute from "./PrivateRoute";
+
+import OnClickBrand from "../pages/OnClickBrand/OnClickBrand";
 import DetailsPage from "../pages/DetailsPage/DetailsPage";
 
 const routes = createBrowserRouter([
@@ -36,8 +38,13 @@ const routes = createBrowserRouter([
       },
       {
         path: "/brands/:brandName",
-        element: <DetailsPage></DetailsPage>,
+        element: <OnClickBrand></OnClickBrand>,
         loader: () => fetch("data.json"),
+      },
+      {
+        path: "/brands/details/:id",
+        element: <DetailsPage></DetailsPage>,
+        loader: () => fetch("http://localhost:5000/products"),
       },
     ],
   },
