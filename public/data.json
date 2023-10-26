@@ -2,7 +2,8 @@
   {
     "id": 1,
     "brandName": "Mercedes-Benz",
-    "brandImage": "https://i.ibb.co/TPDPJ0q/marcedez.jpg"
+    "brandImage": "https://i.ibb.co/TPDPJ0q/marcedez.jpg",
+    "advertiseImage1": "https://i.ibb.co/B2m2GNt/bmw.jpg"
   },
   {
     "id": 2,
