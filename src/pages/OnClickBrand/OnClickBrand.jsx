@@ -35,14 +35,8 @@ const OnClickBrand = () => {
   return (
     <div>
       <Navbar></Navbar>
-      {/* <div className="flex gap-6  mx-[200px] ">
-     
-        <img className=" w-[500px] rounded-2xl" src={advertiseImage1} alt="" />
-        <img className=" w-[500px] rounded-2xl" src={advertiseImage2} alt="" />
-        <img className=" w-[500px] rounded-2xl" src={advertiseImage3} alt="" />
-      </div> */}
 
-      <div className="carousel w-[500px] border lg:mx-[700px] rounded-2xl">
+      <div className="mt-[50px]  carousel w-[500px] border lg:mx-[700px] rounded-2xl">
         <div id="slide1" className="carousel-item relative w-full">
           <img src={advertiseImage1} className="w-full opacity-75" />
           <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -78,21 +72,23 @@ const OnClickBrand = () => {
         </div>
       </div>
 
-      {brands.length > 0 ? (
-        <div className=" grid grid-cols-2 gap-4 max-w-7xl mx-auto my-7">
-          {brands.map((brandCars) => {
-            return (
-              <BrandCars key={brandCars.id} brandCars={brandCars}></BrandCars>
-            );
-          })}
-        </div>
-      ) : (
-        <div>
-          <h2 className=" text-6xl text-center ">
-            Sorry, Nothing to show from this brand!
-          </h2>
-        </div>
-      )}
+      <div className=" mt-[100px]">
+        {brands.length > 0 ? (
+          <div className=" grid grid-cols-2 gap-4 max-w-7xl mx-auto my-7">
+            {brands.map((brandCars) => {
+              return (
+                <BrandCars key={brandCars.id} brandCars={brandCars}></BrandCars>
+              );
+            })}
+          </div>
+        ) : (
+          <div>
+            <h2 className=" text-6xl text-center ">
+              Sorry, Nothing to show from this brand!
+            </h2>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

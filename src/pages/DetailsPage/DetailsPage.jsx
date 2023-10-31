@@ -1,8 +1,15 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import { AiFillStar } from "react-icons/ai";
 import Navbar from "../../shared/Navbar/Navbar";
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProviders";
+import Swal from "sweetalert2";
+import Footer from "../../shared/footer/Footer";
 
 const DetailsPage = () => {
+  const authInfo = useContext(AuthContext);
+  const { user } = authInfo;
+  console.log(user.email);
   const { id } = useParams();
   const data = useLoaderData();
 
@@ -12,10 +19,43 @@ const DetailsPage = () => {
   // const finalResult = result.find((d1) => d1._id == id);
   // console.log("This is final result", finalResult);
   const { name, brandName, description, image, price, rating, type } = result;
+
+  const fullInfo = {
+    name: name,
+    brandName: brandName,
+    description: description,
+    image: image,
+    price: price,
+    rating: rating,
+    type: type,
+    email: user.email,
+  };
+
+  const handleAddToCart = () => {
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Added to the cart!",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+    fetch("http://localhost:5000/cart", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(fullInfo),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
+
   return (
     <div>
       <Navbar></Navbar>
-      <div className="container mx-auto p-4">
+      <div className="container mx-auto p-4 my-[100px]">
         <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
           <img className="h-64 w-full object-cover" src={image} alt="Car" />
           <div className="p-6">
@@ -30,10 +70,13 @@ const DetailsPage = () => {
                 {rating}
               </span>
             </div>
-            <button className="btn">Add to cart</button>
+            <button onClick={handleAddToCart} className="btn">
+              Add to cart
+            </button>
           </div>
         </div>
       </div>
+      <Footer></Footer>
     </div>
   );
 };

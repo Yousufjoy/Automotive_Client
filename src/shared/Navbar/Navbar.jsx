@@ -10,6 +10,7 @@ const Navbar = () => {
   const handleSignOut = () => {
     logoutUser().then().catch();
   };
+  console.log(user);
 
   return (
     <div>
@@ -45,12 +46,21 @@ const Navbar = () => {
             </NavLink>
 
             {user ? (
-              <NavLink
-                to="/login"
-                className="px-3 py-2 hidden transition duration-300 ease-in-out hover:text-[#767676] text-lg text-[#F7A034]"
-              >
-                Login
-              </NavLink>
+              <>
+                <NavLink
+                  to="/login"
+                  className="px-3 py-2 hidden transition duration-300 ease-in-out hover:text-[#767676] text-lg text-[#F7A034]"
+                >
+                  Register
+                </NavLink>
+
+                <p className=" font-bold  px-[15px]">{user.displayName}</p>
+                <img
+                  className=" w-[50px] rounded-lg  mx-[10px]"
+                  src={user.photoURL}
+                  alt=""
+                />
+              </>
             ) : (
               <NavLink
                 to="/login"
@@ -61,17 +71,19 @@ const Navbar = () => {
             )}
 
             {user && (
-              <NavLink
-                to="/"
-                className="px-3 py-2  transition duration-300 ease-in-out hover:text-[#767676] text-lg "
-              >
-                <button
-                  onClick={handleSignOut}
-                  className="btn btn-active btn-ghost"
+              <>
+                <NavLink
+                  to="/"
+                  className="px-3 py-2  transition duration-300 ease-in-out hover:text-[#767676] text-lg "
                 >
-                  Logout
-                </button>
-              </NavLink>
+                  <button
+                    onClick={handleSignOut}
+                    className="btn btn-active btn-ghost"
+                  >
+                    Logout
+                  </button>
+                </NavLink>
+              </>
             )}
           </div>
 
@@ -122,9 +134,7 @@ const Navbar = () => {
             <NavLink
               to="/login"
               className="block text-black hover:text-[#F7A034] px-4 py-2 transition duration-300 ease-in-out"
-            >
-              Login
-            </NavLink>
+            ></NavLink>
             {user && (
               <NavLink
                 to="/"

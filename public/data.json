@@ -3,12 +3,17 @@
     "id": 1,
     "brandName": "Mercedes-Benz",
     "brandImage": "https://i.ibb.co/TPDPJ0q/marcedez.jpg",
-    "advertiseImage1": "https://i.ibb.co/B2m2GNt/bmw.jpg"
+    "advertiseImage1": "https://i.ibb.co/B2m2GNt/bmw.jpg",
+    "advertiseImage2": "https://i.ibb.co/B2m2GNt/bmw.jpg",
+    "advertiseImage3": "https://i.ibb.co/B2m2GNt/bmw.jpg"
   },
   {
     "id": 2,
     "brandName": "BMW",
-    "brandImage": "https://i.ibb.co/B2m2GNt/bmw.jpg"
+    "brandImage": "https://i.ibb.co/B2m2GNt/bmw.jpg",
+    "advertiseImage1": "https://i.ibb.co/B2m2GNt/bmw.jpg",
+    "advertiseImage2": "https://i.ibb.co/B2m2GNt/bmw.jpg",
+    "advertiseImage3": "https://i.ibb.co/B2m2GNt/bmw.jpg"
   },
   {
     "id": 3,
@@ -21,12 +26,18 @@
   {
     "id": 4,
     "brandName": "Toyota",
-    "brandImage": "https://i.ibb.co/m0zB7gY/toyota.jpg"
+    "brandImage": "https://i.ibb.co/m0zB7gY/toyota.jpg",
+    "advertiseImage1": "https://i.ibb.co/m0zB7gY/toyota.jpg",
+    "advertiseImage2": "https://i.ibb.co/m0zB7gY/toyota.jpg",
+    "advertiseImage3": "https://i.ibb.co/m0zB7gY/toyota.jpg"
   },
   {
     "id": 5,
     "brandName": "Ford",
-    "brandImage": "https://i.ibb.co/Gnrg0FY/ford.jpg"
+    "brandImage": "https://i.ibb.co/Gnrg0FY/ford.jpg",
+    "advertiseImage1": "https://i.ibb.co/Gnrg0FY/ford.jpg",
+    "advertiseImage2": "https://i.ibb.co/Gnrg0FY/ford.jpg",
+    "advertiseImage3": "https://i.ibb.co/Gnrg0FY/ford.jpg"
   },
   {
     "id": 6,

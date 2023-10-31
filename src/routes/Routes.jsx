@@ -10,6 +10,7 @@ import PrivateRoute from "./PrivateRoute";
 import OnClickBrand from "../pages/OnClickBrand/OnClickBrand";
 import DetailsPage from "../pages/DetailsPage/DetailsPage";
 import UpdatePage from "../pages/UpdatePage/UpdatePage";
+import MyCart from "../pages/MyCart/MyCart";
 
 const routes = createBrowserRouter([
   {
@@ -55,6 +56,11 @@ const routes = createBrowserRouter([
         path: "/productupdate/:id",
         element: <UpdatePage></UpdatePage>,
         loader: () => fetch("http://localhost:5000/products"),
+      },
+      {
+        path: "/mycart",
+        element: <MyCart></MyCart>,
+        loader: () => fetch("http://localhost:5000/cart"),
       },
     ],
   },

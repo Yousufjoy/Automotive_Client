@@ -1,4 +1,6 @@
+import Swal from "sweetalert2";
 import Navbar from "../../shared/Navbar/Navbar";
+import Footer from "../../shared/footer/Footer";
 
 const AddProducts = () => {
   const handleProductSubmit = (e) => {
@@ -144,7 +146,16 @@ const AddProducts = () => {
             </div>
           </div>
           <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            onClick={() => {
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Product has been Added!",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+            }}
+            className=" bg-orange-300 hover:bg-orange-200 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="submit"
           >
             Add

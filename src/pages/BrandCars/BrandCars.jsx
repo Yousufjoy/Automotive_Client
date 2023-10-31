@@ -10,7 +10,7 @@ const BrandCars = ({ brandCars }) => {
     <div>
       <div className="card bg-base-100 shadow-xl">
         <div>
-          <img src={image} alt="nothing found in image" />
+          <img className=" h-[300px]" src={image} alt="" />
         </div>
         <div className="card-body">
           <h2 className="card-title">

@@ -1,22 +1,27 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/imgs/logo2.png";
 import registerImage from "../../assets/imgs/RegisterBanner.jpg";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
 import Swal from "sweetalert2";
+import { getAuth, updateProfile } from "firebase/auth";
 
 const Register = () => {
   const [errorReg, setErrorReg] = useState("");
   const [successReg, setSuccessReg] = useState("");
   const authInfo = useContext(AuthContext);
   const { createUser } = authInfo;
+  const nav = useNavigate();
+  const auth = getAuth();
 
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
+    const name = form.name.value;
+    const photoUrl = form.photoUrl.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+    console.log(email, password, name);
 
     // Regular expressions for password validation
     const uppercaseRegex = /[A-Z]/;
@@ -40,6 +45,19 @@ const Register = () => {
         console.log(user);
         form.reset();
         Swal.fire("Great!", "Your Account Has been created!", "success");
+        updateProfile(auth.currentUser, {
+          displayName: name,
+          photoURL: photoUrl,
+        })
+          .then(() => {
+            // Profile updated!
+            // ...
+            nav("/");
+          })
+          .catch((error) => {
+            // An error occurred
+            // ...
+          });
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -82,6 +100,46 @@ const Register = () => {
 
               <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
                 <form onSubmit={handleRegister}>
+                  <div className=" my-[10px]">
+                    <label
+                      htmlFor="photoUrl"
+                      className="block text-sm font-medium leading-5"
+                    >
+                      photoUrl
+                    </label>
+
+                    <div className="mt-1 rounded-md shadow-sm">
+                      <input
+                        id="photoUrl"
+                        name="photoUrl"
+                        type="photoUrl"
+                        required
+                        autoFocus
+                        className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                      />
+                    </div>
+                  </div>
+
+                  <div className=" my-[10px]">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium leading-5"
+                    >
+                      name
+                    </label>
+
+                    <div className="mt-1 rounded-md shadow-sm">
+                      <input
+                        id="name"
+                        name="name"
+                        type="name"
+                        required
+                        autoFocus
+                        className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+                      />
+                    </div>
+                  </div>
+
                   <div>
                     <label
                       htmlFor="email"
