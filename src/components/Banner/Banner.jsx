@@ -4,7 +4,7 @@ const Banner = () => {
   return (
     <div className="flex  my-[100px] mx-[100px]">
       <div>
-        <h1 className="text-gray-700 text-5xl font-normal  mt-[200px] mx-[100px] text-start">
+        <h1 className="text-gray-700 dark:text-gray-100 text-5xl font-normal  mt-[200px] mx-[100px] text-start">
           Discover Premium Vehicles: Luxury Sophistication to Rugged
           Reliability.
         </h1>

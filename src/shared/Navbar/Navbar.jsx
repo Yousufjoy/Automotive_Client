@@ -3,6 +3,7 @@ import logo from "../../assets/imgs/logo2.png";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProviders";
 
+import blankUser from "../../assets/imgs/blank-user.jpg";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const authInfo = useContext(AuthContext);
@@ -56,9 +57,9 @@ const Navbar = () => {
 
                 <p className=" font-bold  px-[15px]">{user.displayName}</p>
                 <img
-                  className=" w-[50px] rounded-lg  mx-[10px]"
+                  className=" w-[50px] h-[45px] rounded-full  mx-[10px]"
                   src={user.photoURL}
-                  alt=""
+                  alt={blankUser}
                 />
               </>
             ) : (
@@ -136,17 +137,25 @@ const Navbar = () => {
               className="block text-black hover:text-[#F7A034] px-4 py-2 transition duration-300 ease-in-out"
             ></NavLink>
             {user && (
-              <NavLink
-                to="/"
-                className="px-3 py-2  transition duration-300 ease-in-out hover:text-[#767676] text-lg "
-              >
-                <button
-                  onClick={handleSignOut}
-                  className="btn btn-active btn-ghost"
+              <>
+                <NavLink
+                  to="/"
+                  className="px-3 py-2  transition duration-300 ease-in-out hover:text-[#767676] text-lg "
                 >
-                  Logout
-                </button>
-              </NavLink>
+                  <button
+                    onClick={handleSignOut}
+                    className="btn btn-active btn-ghost"
+                  >
+                    Logout
+                  </button>
+                </NavLink>
+                <p className=" font-bold  px-[15px]">{user.displayName}</p>
+                <img
+                  className=" w-[50px] rounded-lg  mx-[10px]"
+                  src={user.photoURL}
+                  alt={blankUser}
+                />
+              </>
             )}
           </div>
         )}
