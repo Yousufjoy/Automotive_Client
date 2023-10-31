@@ -21,7 +21,7 @@ const Navbar = () => {
             href="#"
             className="text-2xl font-bold text-[#3A3A3A] flex items-center"
           >
-            <img src={logo} alt="" />
+            <img src={logo} />
           </a>
 
           <div className="hidden md:flex items-center">
@@ -59,7 +59,6 @@ const Navbar = () => {
                 <img
                   className=" w-[50px] h-[45px] rounded-full  mx-[10px]"
                   src={user.photoURL}
-                  alt={blankUser}
                 />
               </>
             ) : (
@@ -79,7 +78,7 @@ const Navbar = () => {
                 >
                   <button
                     onClick={handleSignOut}
-                    className="btn btn-active btn-ghost"
+                    className="btn btn-active btn-ghost dark:text-gray-300"
                   >
                     Logout
                   </button>
@@ -144,7 +143,7 @@ const Navbar = () => {
                 >
                   <button
                     onClick={handleSignOut}
-                    className="btn btn-active btn-ghost"
+                    className="btn btn-active btn-ghost dark:text-gray-300"
                   >
                     Logout
                   </button>
@@ -153,7 +152,6 @@ const Navbar = () => {
                 <img
                   className=" w-[50px] rounded-lg  mx-[10px]"
                   src={user.photoURL}
-                  alt={blankUser}
                 />
               </>
             )}
