@@ -36,7 +36,7 @@ const Home = () => {
   return (
     <div className="dark:bg-zinc-800">
       <Navbar></Navbar>
-      <div className="  pl-[1690px]">
+      <div className="  lg:pl-[1690px] pl-[34px]">
         <button
           className=" dark:bg-white text-2xl rounded-3xl "
           onClick={changeTheme}
