@@ -8,26 +8,24 @@ const OnClickBrand = () => {
   const [brands, setBrands] = useState([]);
 
   const { brandName } = useParams();
-  // const data = useLoaderData();
-  // console.log(data);
 
   useEffect(() => {
-    fetch("http://localhost:5000/brandName")
+    fetch(
+      "https://a10-automotive-server-3dy0zv3u5-yousufjoy.vercel.app/brandName"
+    )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         const brandNameData = data.find((d) => d.brandName == brandName);
         setData(brandNameData);
-        console.log(brandName);
       });
   }, [brandName]);
-
-  // const { advertiseImage1 } = data;
 
   const { advertiseImage1, advertiseImage2, advertiseImage3 } = data;
 
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch(
+      "https://a10-automotive-server-3dy0zv3u5-yousufjoy.vercel.app/products"
+    )
       .then((res) => res.json())
       .then((brandData) => {
         const matchingBrandData = brandData.filter(

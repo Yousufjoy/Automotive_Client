@@ -41,7 +41,6 @@ const routes = createBrowserRouter([
       {
         path: "/brands/:brandName",
         element: <OnClickBrand></OnClickBrand>,
-        // loader: () => fetch("data.json"),
       },
       {
         path: "/brands/details/:id",
@@ -50,12 +49,18 @@ const routes = createBrowserRouter([
             <DetailsPage></DetailsPage>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/products"),
+        loader: () =>
+          fetch(
+            "https://a10-automotive-server-3dy0zv3u5-yousufjoy.vercel.app/products"
+          ),
       },
       {
         path: "/productupdate/:id",
         element: <UpdatePage></UpdatePage>,
-        loader: () => fetch("http://localhost:5000/products"),
+        loader: () =>
+          fetch(
+            "https://a10-automotive-server-3dy0zv3u5-yousufjoy.vercel.app/products"
+          ),
       },
       {
         path: "/mycart",
@@ -64,7 +69,10 @@ const routes = createBrowserRouter([
             <MyCart></MyCart>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/cart"),
+        loader: () =>
+          fetch(
+            "https://a10-automotive-server-3dy0zv3u5-yousufjoy.vercel.app/cart"
+          ),
       },
     ],
   },

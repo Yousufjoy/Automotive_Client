@@ -40,7 +40,7 @@ const UpdatePage = () => {
     console.log(updatedCar);
 
     //   fetch(
-    //     `http://localhost:5000/products/${_id}`,
+    //     `https://a10-automotive-server-3dy0zv3u5-yousufjoy.vercel.app/products/${_id}`,
     //     {
     //       method: "PUT",
     //       headers: {
@@ -55,21 +55,24 @@ const UpdatePage = () => {
     //   );
     // };
 
-    fetch(`http://localhost:5000/products/${_id}`, {
-      // eta korar jonno just google e Uploading JSON data likhe search dile pawa jabe doc
-      method: "PUT",
-      headers: {
-        "content-type": "application/json", // Ki dhoroner data pathabo jehetu json type
-      },
-      body: JSON.stringify(updatedCar),
-    })
+    fetch(
+      `https://a10-automotive-server-3dy0zv3u5-yousufjoy.vercel.app/products/${_id}`,
+      {
+        // eta korar jonno just google e Uploading JSON data likhe search dile pawa jabe doc
+        method: "PUT",
+        headers: {
+          "content-type": "application/json", // Ki dhoroner data pathabo jehetu json type
+        },
+        body: JSON.stringify(updatedCar),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
       });
   };
 
-  //   fetch(`http://localhost:5000/products/${_id}`, {
+  //   fetch(`https://a10-automotive-server-3dy0zv3u5-yousufjoy.vercel.app/products/${_id}`, {
   //     method: "PUT",
   //     headers: {
   //       "content-type": "application/json",

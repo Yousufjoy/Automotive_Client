@@ -14,8 +14,6 @@ const MyCart = () => {
 
   const result = myCartValues.filter((d) => d.email == user.email);
 
-  console.log(result);
-
   return (
     <div>
       <div>

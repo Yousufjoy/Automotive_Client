@@ -36,7 +36,7 @@ const DetailsPage = () => {
       showConfirmButton: false,
       timer: 1500,
     });
-    fetch("http://localhost:5000/cart", {
+    fetch("https://a10-automotive-server-3dy0zv3u5-yousufjoy.vercel.app/cart", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -58,7 +58,7 @@ const DetailsPage = () => {
   //     showConfirmButton: false,
   //     timer: 1500,
   //   });
-  //   fetch(`http://localhost:5000/cart?email=${userEmail}`, {
+  //   fetch(`https://a10-automotive-server-3dy0zv3u5-yousufjoy.vercel.app/cart?email=${userEmail}`, {
   //     method: "POST",
   //     headers: {
   //       "Content-Type": "application/json",
