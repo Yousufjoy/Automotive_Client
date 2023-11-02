@@ -1,10 +1,10 @@
 Live Link : https://auto-connect-1c1c8.web.app/
 
-Description Abut the project :
+--> Description Abut the project :
 
 AutoConnect is an innovative e-commerce platform designed for car enthusiasts and owners, offering a comprehensive range of car-related products and accessories. With its intuitive interface and a wide selection of automotive items, users can effortlessly explore, select, and manage products, creating a seamless and engaging shopping experience for all things automotive.
 
-Key Features:
+--> Key Features:
 
 1. Secure Authentication System: AutoConnect implements a robust email and password-based authentication system, ensuring a secure and reliable user registration and login process. Additionally, users have the convenience of accessing the platform through their preferred social media accounts, enhancing the overall user experience and accessibility.
 
