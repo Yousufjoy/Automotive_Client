@@ -14,7 +14,7 @@ const Brands = () => {
 
   return (
     <div className=" lg:px-[100px] ">
-      <h1 className=" py-[50px]  text-[#F7A034] tracking-wide lg:pl-[680px] text-5xl font-medium ">
+      <h1 className=" text-center lg:text-justify py-[150px] lg:py-[50px] text-[#F7A034] tracking-wide lg:pl-[680px] text-5xl font-medium ">
         Our Collaboration
       </h1>
       <div className="grid lg:grid-cols-3 gap-4 ">

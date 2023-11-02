@@ -41,7 +41,7 @@ const routes = createBrowserRouter([
       {
         path: "/brands/:brandName",
         element: <OnClickBrand></OnClickBrand>,
-        loader: () => fetch("data.json"),
+        // loader: () => fetch("data.json"),
       },
       {
         path: "/brands/details/:id",
@@ -59,7 +59,11 @@ const routes = createBrowserRouter([
       },
       {
         path: "/mycart",
-        element: <MyCart></MyCart>,
+        element: (
+          <PrivateRoute>
+            <MyCart></MyCart>
+          </PrivateRoute>
+        ),
         loader: () => fetch("http://localhost:5000/cart"),
       },
     ],

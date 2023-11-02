@@ -5,7 +5,6 @@ const BrandCars = ({ brandCars }) => {
   const { _id, brandName, description, image, name, price, rating, type } =
     brandCars;
 
-  console.log(image);
   return (
     <div>
       <div className="card bg-base-100 shadow-xl">

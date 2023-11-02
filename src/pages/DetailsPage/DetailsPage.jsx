@@ -9,15 +9,12 @@ import Footer from "../../shared/footer/Footer";
 const DetailsPage = () => {
   const authInfo = useContext(AuthContext);
   const { user } = authInfo;
-  console.log(user.email);
+
   const { id } = useParams();
   const data = useLoaderData();
 
   const result = data.find((d) => d._id == id);
-  console.log("This is result ", result);
 
-  // const finalResult = result.find((d1) => d1._id == id);
-  // console.log("This is final result", finalResult);
   const { name, brandName, description, image, price, rating, type } = result;
 
   const fullInfo = {
@@ -48,9 +45,31 @@ const DetailsPage = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
       });
   };
+
+  // const handleAddToCart = () => {
+  //   const userEmail = "user@example.com"; // Replace with the actual user's email
+  //   Swal.fire({
+  //     position: "center",
+  //     icon: "success",
+  //     title: "Added to the cart!",
+  //     showConfirmButton: false,
+  //     timer: 1500,
+  //   });
+  //   fetch(`http://localhost:5000/cart?email=${userEmail}`, {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(fullInfo),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       // console.log(data);
+  //     });
+  // };
 
   return (
     <div>

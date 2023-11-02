@@ -4,17 +4,27 @@ import { useEffect, useState } from "react";
 import BrandCars from "../BrandCars/BrandCars";
 
 const OnClickBrand = () => {
-  const data = useLoaderData();
-  console.log(data);
-  // const { advertiseImage1 } = data;
+  const [data, setData] = useState([]);
   const [brands, setBrands] = useState([]);
 
   const { brandName } = useParams();
+  // const data = useLoaderData();
+  // console.log(data);
 
-  const brandNameData = data.find((d) => d.brandName === brandName);
-  console.log(brandNameData);
+  useEffect(() => {
+    fetch("http://localhost:5000/brandName")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        const brandNameData = data.find((d) => d.brandName == brandName);
+        setData(brandNameData);
+        console.log(brandName);
+      });
+  }, [brandName]);
 
-  const { advertiseImage1, advertiseImage2, advertiseImage3 } = brandNameData;
+  // const { advertiseImage1 } = data;
+
+  const { advertiseImage1, advertiseImage2, advertiseImage3 } = data;
 
   useEffect(() => {
     fetch("http://localhost:5000/products")
@@ -30,13 +40,11 @@ const OnClickBrand = () => {
       });
   }, [brandName]);
 
-  console.log(brands);
-
   return (
     <div>
       <Navbar></Navbar>
 
-      <div className="mt-[50px]  carousel w-[500px] border lg:mx-[700px] rounded-2xl">
+      <div className="mt-[50px]  carousel lg:w-[500px] border lg:mx-[700px] rounded-2xl ">
         <div id="slide1" className="carousel-item relative w-full">
           <img src={advertiseImage1} className="w-full opacity-75" />
           <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -74,7 +82,7 @@ const OnClickBrand = () => {
 
       <div className=" mt-[100px]">
         {brands.length > 0 ? (
-          <div className=" grid grid-cols-2 gap-4 max-w-7xl mx-auto my-7">
+          <div className=" grid lg:grid-cols-2 gap-4 max-w-7xl mx-auto my-7">
             {brands.map((brandCars) => {
               return (
                 <BrandCars key={brandCars.id} brandCars={brandCars}></BrandCars>

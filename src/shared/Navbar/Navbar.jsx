@@ -11,7 +11,6 @@ const Navbar = () => {
   const handleSignOut = () => {
     logoutUser().then().catch();
   };
-  console.log(user);
 
   return (
     <div>
@@ -113,27 +112,27 @@ const Navbar = () => {
           <div className="md:hidden">
             <NavLink
               to="/"
-              className="block text-black hover:text-[#F7A034] px-4 py-2 transition duration-300 ease-in-out"
+              className="block text-black hover:text-[#F7A034] px-4 py-2 transition duration-300 ease-in-out dark:text-white"
             >
               Home
             </NavLink>
 
             <NavLink
               to="/addproduct"
-              className="block text-black hover:text-[#F7A034] px-4 py-2 transition duration-300 ease-in-out"
+              className="block text-black hover:text-[#F7A034] px-4 py-2 transition duration-300 ease-in-out dark:text-white"
             >
               Add Product
             </NavLink>
 
             <NavLink
               to="/mycart"
-              className="block text-black hover:text-[#F7A034] px-4 py-2 transition duration-300 ease-in-out"
+              className="block text-black hover:text-[#F7A034] px-4 py-2 transition duration-300 ease-in-out dark:text-white"
             >
               My Cart
             </NavLink>
             <NavLink
               to="/login"
-              className="block text-black hover:text-[#F7A034] px-4 py-2 transition duration-300 ease-in-out"
+              className="block text-black hover:text-[#F7A034] px-4 py-2 transition duration-300 ease-in-out dark:text-white"
             ></NavLink>
             {user && (
               <>
