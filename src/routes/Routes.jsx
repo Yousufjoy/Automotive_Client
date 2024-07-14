@@ -9,7 +9,7 @@ import PrivateRoute from "./PrivateRoute";
 
 import OnClickBrand from "../pages/OnClickBrand/OnClickBrand";
 import DetailsPage from "../pages/DetailsPage/DetailsPage";
-import UpdatePage from "../pages/UpdatePage/UpdatePage";
+// import UpdatePage from "../pages/UpdatePage/UpdatePage";
 import MyCart from "../pages/MyCart/MyCart";
 
 const routes = createBrowserRouter([
@@ -54,14 +54,14 @@ const routes = createBrowserRouter([
             "https://a10-automotive-server-3dy0zv3u5-yousufjoy.vercel.app/products"
           ),
       },
-      {
-        path: "/productupdate/:id",
-        element: <UpdatePage></UpdatePage>,
-        loader: () =>
-          fetch(
-            "https://a10-automotive-server-3dy0zv3u5-yousufjoy.vercel.app/products"
-          ),
-      },
+      // {
+      //   path: "/productupdate/:id",
+      //   element: <UpdatePage></UpdatePage>,
+      //   loader: () =>
+      //     fetch(
+      //       "https://a10-automotive-server-3dy0zv3u5-yousufjoy.vercel.app/products"
+      //     ),
+      // },
       {
         path: "/mycart",
         element: (

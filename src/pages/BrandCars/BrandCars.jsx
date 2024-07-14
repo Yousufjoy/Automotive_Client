@@ -31,9 +31,9 @@ const BrandCars = ({ brandCars }) => {
             </Link>
           </div>
           <div>
-            <Link to={`/productupdate/${_id}`}>
+            {/* <Link to={`/productupdate/${_id}`}>
               <button className="btn">Update!</button>
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>
